@@ -1,8 +1,8 @@
-import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { Employee } from './employee';
-import { EmployeeService } from './employee.service';
+import { HttpErrorResponse } from '@angular/common/http'
+import { Component, OnInit } from '@angular/core'
+import { NgForm } from '@angular/forms'
+import { Employee } from './employee'
+import { EmployeeService } from './employee.service'
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { EmployeeService } from './employee.service';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  public employees!: Employee[];
+  public employees: Employee[] = [];
   public editEmployee!: Employee;
   public deleteEmployee!: Employee;
 
@@ -52,6 +52,24 @@ export class AppComponent implements OnInit {
     button.click();
   }
 
+  public searchEmployee( key: string ): void
+  {
+    const results: Employee[] = [];
+    for ( const employee of this.employees )
+    {
+      if ( employee.name.toLowerCase().indexOf( key.toLowerCase()) !== -1
+      || employee.email.toLowerCase().indexOf( key.toLowerCase()) !== -1
+      || employee.jobTitle.toLowerCase().indexOf( key.toLowerCase()) !== -1
+        || employee.phone.toLowerCase().indexOf( key.toLowerCase()) !== -1 ) {
+        results.push( employee );
+      }
+  }
+    this.employees = results;
+    if ( results.length === 0 || !key )
+    {
+      this.getEmployees();
+    }
+}
 
   public onAddEmployee(addForm: NgForm): void {
     document.getElementById('add-employee-form')?.click();
