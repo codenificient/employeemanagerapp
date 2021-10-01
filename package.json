@@ -7,7 +7,7 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "heroku-postbuild": "ng serve --aot"
+    "heroku-postbuild": "ng build --aot --prod"
   },
   "private": true,
   "dependencies": {
@@ -38,7 +38,7 @@
     "typescript": "~4.3.5"
   },
   "engines": {
-    "node": "12",
-    "npm": "7"
+    "node": "16",
+    "npm": "7.20"
   }
 }
