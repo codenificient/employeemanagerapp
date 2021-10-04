@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
       this.employees = response;
     }),
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        alert(`Unable to fulfill request`);
       };
   }
 
@@ -89,11 +89,11 @@ export class AppComponent implements OnInit {
   public onUpdateEmployee(employee: Employee): void {
     this.employeeService.updateEmployee(employee).subscribe(
       (response: Employee) => {
-        console.log(response);
+        // console.log(response);
         this.getEmployees();
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        alert(`Update operation rejected`);
       }
     );
   }
@@ -101,11 +101,11 @@ export class AppComponent implements OnInit {
   public onDeleteEmployee(employeeId: number): void {
     this.employeeService.deleteEmployee(employeeId).subscribe(
       (response: void) => {
-        console.log(response);
+        // console.log(response);
         this.getEmployees();
       },
       (error: HttpErrorResponse) => {
-        alert(error.message);
+        alert(`Unable to delete employee!`);
       }
     );
   }
