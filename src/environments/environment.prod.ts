@@ -1,4 +1,4 @@
 export const environment = {
 	production: true,
-	apiBaseUrl: 'https://codenemploye.herokuapp.com'
+	apiBaseUrl: 'https://employeemanager-beta.vercel.app/'
 }
