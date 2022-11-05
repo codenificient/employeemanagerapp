@@ -1,4 +1,4 @@
 export const environment = {
 	production: true,
-	apiBaseUrl: 'https://employeemanager.up.railway.app/'
+	apiBaseUrl: 'https://employeemanager.up.railway.app'
 }
